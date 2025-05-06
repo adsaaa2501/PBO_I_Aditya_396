@@ -1,0 +1,12 @@
+package com.praktikum.action;
+
+public interface AdminAction {
+    void login();
+
+    void displayInfo();
+
+    void displayAppMenu();
+
+    void manageItems();
+    void manageUsers();
+}
