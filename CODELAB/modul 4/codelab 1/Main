@@ -1,0 +1,25 @@
+import perpustakaan.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        NonFiksi nonFiksi = new NonFiksi("Filosofi Teras", "Henry Manampiring", "(Bidang: pengembangan ketahanan mental dan pengendalian emosi negatif)");
+        Fiksi fiksi = new Fiksi("Laskar Pelangi", "Andrea Hirata", "(Genre: Drama)");
+
+        nonFiksi.displayInfo();
+        fiksi.displayInfo();
+        System.out.println();
+
+        Anggota anggota = new Anggota("Aditya Saputra", "(ID: 2024)");
+        Anggota anggota1 = new Anggota("Mario Maulana", "(ID: 2025)");
+        System.out.println();
+
+        anggota.pinjamBuku(nonFiksi.judul);
+        anggota1.pinjamBuku(fiksi.judul, 10);
+        System.out.println();
+
+        anggota.kembalikanBuku();
+        anggota1.kembalikanBuku();
+    }
+}
