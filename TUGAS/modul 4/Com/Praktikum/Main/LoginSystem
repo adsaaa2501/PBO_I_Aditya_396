@@ -1,0 +1,37 @@
+package com.praktikum.Main;
+import com.praktikum.users.User;
+import com.praktikum.users.Admin;
+import com.praktikum.users.Mahasiswa;
+
+import java.util.Scanner;
+
+public class LoginSystem {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        Admin admin1 = new Admin("AdminGalau", "396");
+        Mahasiswa mahasiswa1 = new Mahasiswa("Aditya", "396");
+
+
+        System.out.println("=== Login System ===");
+        System.out.println("1. Login sebagai Admin");
+        System.out.println("2. Login sebagai Mahasiswa");
+        System.out.print("Pilihan: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        if (choice == 1) {
+            admin1.login();
+
+
+        } else if (choice == 2) {
+            mahasiswa1.login();
+            mahasiswa1.displayInfo();
+            mahasiswa1.displayAppMenu();
+
+        } else {
+            System.out.println("Pilihan tidak tersedia.");
+        }
+
+        scanner.close();
+    }
+}
