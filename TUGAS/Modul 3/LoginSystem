@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class LoginSystem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("=== Login System ===");
+        System.out.println("1. Login sebagai Admin");
+        System.out.println("2. Login sebagai Mahasiswa");
+        System.out.print("Pilihan: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        if (choice == 1) {
+            System.out.print("Masukkan nama: ");
+            String nama = scanner.nextLine();
+            System.out.print("Masukkan NIM: ");
+            String nim = scanner.nextLine();
+            System.out.print("Masukkan username: ");
+            String username = scanner.nextLine();
+            System.out.print("Masukkan password: ");
+            String password = scanner.nextLine();
+
+            Admin admin = new Admin(nama, nim, username, password);
+            if (admin.login()) {
+                admin.displayInfo();
+            } else {
+                System.out.println("Login gagal. Username atau password salah.");
+            }
+
+        } else if (choice == 2) {
+            System.out.print("Masukkan nama: ");
+            String nama = scanner.nextLine();
+            System.out.print("Masukkan NIM: ");
+            String nim = scanner.nextLine();
+
+            Mahasiswa mhs = new Mahasiswa(nama, nim);
+            if (mhs.login()) {
+                mhs.displayInfo();
+            } else {
+                System.out.println("Login gagal. Nama atau NIM salah.");
+            }
+        } else {
+            System.out.println("Pilihan tidak tersedia.");
+        }
+
+        scanner.close();
+    }
+}
