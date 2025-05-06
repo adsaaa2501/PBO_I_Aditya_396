@@ -1,0 +1,74 @@
+package com.praktikum.users;
+
+import com.praktikum.action.AdminAction;
+
+import java.util.Scanner;
+
+public class Admin extends User implements AdminAction {
+    private String Username;
+    private String Password;
+
+    public Admin(String Username, String Password) {
+        super(Username, Password);
+        this.Username = Username;
+        this.Password = Password;
+    }
+
+    @Override
+    public void login(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Masukkan Username: ");
+        String username = input.nextLine();
+        System.out.println("Masukkan Password: ");
+        String password = input.nextLine();
+
+        if(username.equals(Username) && password.equals(Password)){
+            displayInfo();
+
+        }else{
+            System.out.println("Username dan Password yang dimasukkan salah!");
+        }
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Login berhasil sebagai Admin.");
+
+    }
+    @Override
+    public void displayAppMenu(){
+        Scanner input = new Scanner(System.in);
+        int Pilih;
+        do {
+            System.out.println("Masukkan Pilihan: ");
+            System.out.println("1. Kelola Laporan Barang");
+            System.out.println("2. Kelola Data Mahasiswa");
+            System.out.println("3. Logout");
+            System.out.print("pilihan(1-3): ");
+            Pilih = input.nextInt();
+
+            if (Pilih == 1){
+                manageItems();
+            }else if (Pilih == 2){
+                manageUsers();
+            } else if (Pilih == 3) {
+                System.out.println(">> Terima Kasih <<");
+            }else {
+                System.out.println(">> Data yang Anda Masukkan  Salah <<");
+            }
+        }while (Pilih !=0);
+
+    }
+
+    @Override
+    public void manageItems(){
+        System.out.println("Fitur kelola barang belum tersedia");
+
+    }
+    @Override
+    public void manageUsers(){
+        System.out.println("Fitur Mahasiswa belum tersedia");
+
+}
+
+}
